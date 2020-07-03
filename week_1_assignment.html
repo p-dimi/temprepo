@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		The first week assignment.
+		<link rel="stylesheet" href="week1style.css" type="text/css" />
+	</head>
+	<body>
+		<div id="header">
+			<h1>Assignment  for the first week:</h1>
+			<h3>Make a website!</h3>
+<p>On my website, I decided to go ahead with a simple design, basic style, something which I can re-use time and time again with absolutely zero complications, and something that is easy on the eyes.
+No flashy colors, no retina-burning white background, no fancy fonts, no scripts, no nothing.
+Basic, simple, straightforward HTML.
+</p>
+<a href="index.html">Back home</a>
+			</div>
+		<div id="body">
+			<h3>The process!</h3>
+			<br>
+			<p>The tools I will be using:<br>1. <b>Notepad</b> for the HTML / CSS codes.
+			<br>2. <b>Git Bash</b> to commit and upload the web pages.</p><p>I will be following two tutorials for this week:<br>
+			1. <a href="https://www.youtube.com/watch?v=Y9XZQO1n_7c">"Learn Git in 20 minutes" Youtube tutotial</a>
+			<br>2. <a href="https://docs.gitlab.com/ee/ssh/">Create an SSH key for Gitlab in Windows</a></p>
+			<p>
+First, I need to download GIT, to start using Git Bash and to connect to my Fab Academy repo.
+</p>
+
+<img src ="./websitebuild/Screenshot (218).jpg">
+<p>
+While it's downloading, I will share some of my CSS code to clarify just how simple I'm making it:</p>
+
+<xmp>
+body {
+	background-color: #fff3d2;
+}
+h1 {
+	color: #0f0505;
+	text-align: center;
+}
+h3 {
+	color: #0f0505;
+	text-align: center;
+}
+p {
+	color: black;
+	text-align: center;
+}
+#pages {
+	margin: auto;
+	padding: 10px;
+	position: center;
+	text-align: center;
+}
+#links {
+	float: center;
+	text-align: center;
+	margin: 0 auto;
+}
+</xmp>
+<p>
+And the HTML of the website index:</p>
+
+<xmp>
+	<head>
+		My website for the Fab Academy of 2018
+		<title>Dmitri Paley, Fab Academy 2018</title>
+		<meta name="dima_paley" content="fabacademy documentation website" />
+		<link rel="stylesheet" href="indexstyle.css" type="text/css" />
+	</head>
+	<body>
+		<div id="pages">
+			<h1>Navigation hub to different assignments</h1>
+		</div>
+		<div id="links">
+			<h2>Links to the weekly assignments:</h2>
+			<a href="week_1_assignment.html">Week 2</a>
+			<br><br>
+			<a href="week_2_assignment.html">Week 3</a>
+			<br><br>
+			<a href="week_3_assignment.html">Week 4</a>
+			
+		</div>
+	</body>
+</xmp>
+<p>
+The actual page itself:</p>
+
+<img src ="./websitebuild/Screenshot (219).jpg">
+<p>
+GIT:<br>
+In order to get the website running, of course, I first need to hook up to the Git repository and to get all these Git commands and connections done.
+<br>
+So first thing's first - I open  git bash from my desired folder (right click on the folder and click "Git bash here".
+</p>
+<img src ="./websitebuild/Screenshot (240).jpg">
+<p>
+Then I type in the command:</p>
+<code>
+Git init
+</code>
+<p>
+In the Git bash.
+I was also previously connected to a repository, but after some computer trouble have had to factory reset, so I'm going to run a quick check and see that I'm not connected any more (git fetch origin):</p>
+
+<img src ="./websitebuild/Screenshot (241).png">
+<p>
+Nope, not connected. Okay good, so it's actually all from scratch.<br>
+So in order to connect to a repository, I need to get the clone url from the repository page.</p>
+
+<img src ="./websitebuild/Screenshot (242).jpg">
+<p>
+After I clone it, in Git bash, I type "git remote", Enter, and then "git clone" and paste the repo URL.
+So it looks like this:</p>
+
+<img src ="./websitebuild/Screenshot (243).png">
+
+<p>My machine already has the SSH code in the repo, so I should not have any credential issues when I try to push.</p>
+<code>
+Git push origin master
+</code>
+<p>
+I'll add a new file to the folder real quick, just a simple txt file called "test.txt":</p>
+<img src ="./websitebuild/Screenshot (244).jpg">
+<p>
+Then I'm gonna run the git push command as specified above.</p>
+
+<img src ="./websitebuild/Screenshot (245).png">
+
+<p>And it appears that after factory reset, the SSH I had previously is no longer working, as I cannot push the changes to the repo.<br>
+Good! This means I'll get to cover that part as well :)</p>
+<p>
+So, from the GitLab's documentation page (https://docs.gitlab.com/ce/ssh/README.html), in Git bash I need to type in the command:</p>
+<code>
+ssh-keygen -t rsa -C "your.email@example.com" -b 4096
+</code>
+<p>
+Of course my own email is not "your.email@example.com" so I substitude that with mine.
+I pasted the command, gave it some time, and when it was done generating the key it prompted me to specify a directory to put the key in.</p>
+
+<img src ="./websitebuild/Screenshot (246).png">
+<p>
+I simply clicked enter, using the default.<br>
+And the SSH is done!</p>
+
+<img src ="./websitebuild/Screenshot (248).png">
+<p>
+To copy the SSH, I need to run the windows command terminal and type in the following command:</p>
+<code>
+type %userprofile%\.ssh\id_rsa.pub | clip
+</code>
+<br><br>
+<img src ="./websitebuild/Screenshot (249).png">
+<p>
+Which I have done, and then simply followed the next step in the documentation:<br>
+"Navigate to the 'SSH Keys' tab in your 'Profile Settings'. Paste your key in the 'Key' section and give it a relevant 'Title'."</p>
+<p>
+So now on my settings page I have the SSH:</p>
+
+<img src ="./websitebuild/Screenshot (250).jpg">
+<p>
+And time to test the push origin master command again!<br>
+But before I do, I actually forgot a couple of intermediary commands as well, which are:<br>
+"git add." and "git commit -m 'comment'"</p>
+<p>
+So just to be sure, I closed bash, then opened it again.
+I also typed in "cd dmitri-paley" which should read from my actual cloned repo folder now.<br>
+Running "git remote -v" to test if there's a connection, there appears to be:</p>
+
+<img src ="./websitebuild/Screenshot (251).png">
+<p>
+NOW I add the "test.txt" file into the "dmitri-paley" folder (I really forgot how to use git, so bear with me while I stumble around to success here), and check with "git status":<br>
+
+<img src ="./websitebuild/Screenshot (252).png">
+<p>
+Okay, so it's showing right.<br>
+So now we know the drill - "git add ." then "git commit -m comment", then "git push origin master":</p>
+
+<img src ="./websitebuild/Screenshot (253).png">
+<p>
+And on the repo itself:</p>
+<img src ="./websitebuild/Screenshot (254).jpg">
+<p>
+Great! Excellent, so it's now pushing, and I got a good connection going on. Excellent.
+<br>
+One last thing left to change - in the index CSS file, I'm going to change the color hash.<br>
+Instead of fff3d2, I'm changing it to ff1111, which I don't know what result it will actually bring, but likely not be the nice creamy color I initially set up.</p>
+<img src ="./websitebuild/Screenshot (255).jpg">
+<p>
+I commit and push the changes with git, and then open the website.</p>
+
+<img src ="./websitebuild/Screenshot (256).jpg">
+<p>
+TA DA! It is hideous, but also shows that everything works correctly.
+Changing it back in the CSS and pushing it again:</p>
+
+<img src ="./websitebuild/Screenshot (257).jpg">
+<p>
+It's back to normal, and the website is ready to have pages and files pushed to it through Git.<br>
+Happy end!</p>
+
+<a href="index.html">Back home</a>
+			<div style="clear:both;" />
+		</div>
+	</body>
+</html>

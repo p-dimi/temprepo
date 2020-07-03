@@ -1,0 +1,26 @@
+body {
+	background-color: #fff3d2;
+}
+h1 {
+	color: #0f0505;
+	text-align: center;
+}
+h3 {
+	color: #0f0505;
+	text-align: center;
+}
+p {
+	color: black;
+	text-align: center;
+}
+#pages {
+	margin: auto;
+	padding: 10px;
+	position: center;
+	text-align: center;
+}
+#links {
+	float: center;
+	text-align: center;
+	margin: 0 auto;
+}
